@@ -39,6 +39,10 @@
     transition: all 0.3s ease;
   }
 
+  .page-loaded &::before {
+    animation: pulse 0.6s ease forwards;
+  }
+
   svg {
     @include center;
     display: block;
@@ -265,5 +269,17 @@
     &--vk {
       transition-delay: 450ms;
     }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
   }
 }
