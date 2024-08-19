@@ -43,16 +43,11 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
-  transform: scaleX(0);
-  transform-origin: right;
+  margin-left: auto;
+  animation: fadeRight 0.8s ease-out;
 
   &:focus {
     border: 1px solid $c-purple;
-  }
-
-  .screen--game.active & {
-    transform: scaleX(1);
-    transition: all 0.8s ease;
   }
 
   @media (min-width: $stop-scaling) {
@@ -87,6 +82,8 @@
 
 .form__button {
   flex-grow: 1;
+  max-width: 18rem;
+  min-width: 18rem;
 
   @media (orientation: portrait) {
     position: relative;
@@ -151,5 +148,14 @@
     @media (max-width: $mobile) and (orientation: landscape) {
       width: calc(100% - 5rem);
     }
+  }
+}
+
+@keyframes fadeRight {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: calc(100% - 21rem);
   }
 }
