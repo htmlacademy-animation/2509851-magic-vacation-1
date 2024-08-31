@@ -18,6 +18,25 @@ export default class FullPageScroll {
     document.addEventListener(`wheel`, throttle(this.onScrollHandler, this.THROTTLE_TIMEOUT, {trailing: true}));
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
 
+    this.menuElements.forEach((menuElement) => {
+      menuElement.addEventListener(`click`, function (event) {
+        event.preventDefault();
+        const hash = event.target.hash;
+        const currentHash = window.location.hash;
+        const targetHref = menuElement.dataset.href;
+
+        if (currentHash === `#story` && targetHref === `prizes`) {
+          document.querySelector(`.screen.active`).classList.add(`screen-overlay`);
+
+          setTimeout(() => {
+            window.location.hash = hash;
+          }, 500);
+        } else {
+          window.location.hash = hash;
+        }
+      });
+    });
+
     this.onUrlHashChanged();
   }
 
@@ -54,7 +73,7 @@ export default class FullPageScroll {
   changeVisibilityDisplay() {
     this.screenElements.forEach((screen) => {
       screen.classList.add(`screen--hidden`);
-      screen.classList.remove(`active`);
+      screen.classList.remove(`active`, `screen-overlay`);
     });
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     setTimeout(() => {
