@@ -40,7 +40,7 @@
   }
 
   .page-loaded &::before {
-    animation: pulse 0.6s ease forwards;
+    animation: pulse 0.6s $ease-in-out-bounce forwards;
   }
 
   svg {
@@ -269,17 +269,5 @@
     &--vk {
       transition-delay: 450ms;
     }
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.5);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
   }
 }
