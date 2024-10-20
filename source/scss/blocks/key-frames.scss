@@ -13,6 +13,49 @@
   }
 }
 
+@keyframes fadeInBullet {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInButton {
+  0% {
+    transform: scaleX(0);
+    color: transparent;
+  }
+
+  95% {
+    color: transparent;
+  }
+
+  100% {
+    transform: scaleX(1);
+    color: $c-dark;
+  }
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateX(2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @keyframes fadeRight {
   0% {
     width: 0;
